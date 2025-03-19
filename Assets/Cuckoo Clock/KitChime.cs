@@ -5,6 +5,10 @@ using UnityEngine;
 public class KitChime : MonoBehaviour
 {
     public KitClock clock;
+    public SpriteRenderer cuckoo;
+    public float cuckooTime;
+
+    Coroutine cuckooIsChiming;
 
     private void Start()
     {
