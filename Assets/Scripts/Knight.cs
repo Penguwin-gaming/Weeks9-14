@@ -6,13 +6,16 @@ public class Knight : MonoBehaviour
 {
     Animator animator;
     SpriteRenderer sr;
+    AudioSource audio;
     public float speed = 2;
     public bool canRun = true;
+    public AudioClip[] run;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,5 +42,11 @@ public class Knight : MonoBehaviour
     public void AttackHasFinished()
     {
         canRun = true;
+    }
+    public void FootStep()
+    {
+        int Step = Random.Range(0, run.Length);
+
+        audio.PlayOneShot(run[Step]);
     }
 }
