@@ -303,7 +303,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -343,7 +343,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: 0
-  position: 0
+  positionY: 0
+  shot: {fileID: 7395267550201960783, guid: 8fee8a510a329a64d8f8a9be0da6a31a, type: 3}
+  maxBullets: 5
+  bulletsOnScreen: []
+  bullet: {fileID: 5257427958122100874, guid: 8fee8a510a329a64d8f8a9be0da6a31a, type: 3}
+  manyShots: 0
 --- !u!1 &1022688561
 GameObject:
   m_ObjectHideFlags: 0
