@@ -12,10 +12,11 @@ public class EnemySpawner : MonoBehaviour
     public Vector3 topLane;
     public Vector3 middleLane;
     public Vector3 bottomLane;
+
     // Start is called before the first frame update
     void Start()
     {
-        spawnSpeed = 4f;
+        spawnSpeed = 3f;
     }
 
     // Update is called once per frame
@@ -27,10 +28,10 @@ public class EnemySpawner : MonoBehaviour
         {
             laneRoll = Random.Range(0, 3);
 
-            if (laneRoll > 2 )
+            if (laneRoll > 1 )
             {
                 Instantiate(enemy, topLane, transform.rotation);
-            } else if (laneRoll > 1 )
+            } else if (laneRoll > 0 )
             {
                 Instantiate(enemy, middleLane, transform.rotation);
             } else

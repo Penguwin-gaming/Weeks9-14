@@ -101,4 +101,3 @@ MonoBehaviour:
   airTime: 0
   maxAirTime: 8
   player: {fileID: 0}
-  enemy: {fileID: 0}

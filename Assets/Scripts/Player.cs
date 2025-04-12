@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,18 +9,14 @@ public class Player : MonoBehaviour
     public int movement;
     public int positionY;
 
-    //variables that relate to bullets
-    public GameObject shot;
-    public int maxBullets = 5;
-    public List<GameObject> bulletsOnScreen;
+    //variables that relate to other important features
     public int enemyHits;
-    public int killStreak;
-    public Bullet bullet;
-    public bool manyShots = false;
+    public bool isDead;
 
     // Start is called before the first frame update
     void Start()
     {
+        isDead = false;
         movement = 3;
         positionY = 0;
     }
@@ -43,36 +40,9 @@ public class Player : MonoBehaviour
             positionY = positionY - movement;
         }
 
-        //checks if the player presses the space bar and calls on the shoot function to fire a bullet
-        //will not shoot if the max amount of bullets on screen is reached
-        if(Input.GetKeyDown(KeyCode.Space) && bulletsOnScreen.Count <= maxBullets)
+        if (isDead == true)
         {
-            Shoot();
+            Destroy (gameObject);
         }
-
-        //checks if the manyshots power is active and increases the max amount of bullets the player can fire
-        if(manyShots == true)
-        {
-            maxBullets = 12;
-        }
-    }
-
-    //the function that fires a bullet and adds the bullet to the list
-    public void Shoot()
-    {
-        {
-            GameObject bulletFired = Instantiate(shot, transform.position, transform.rotation);
-
-            Bullet b = bulletFired.GetComponent<Bullet>();
-            b.player = this;
-
-            bulletsOnScreen.Add(bulletFired);
-        }
-    }
-
-    //is called from the bullet script that removes the bullet after despawning or hitting an enemy
-    public void BulletDissapear(GameObject b)
-    {
-        bulletsOnScreen.Remove(b);
     }
 }
