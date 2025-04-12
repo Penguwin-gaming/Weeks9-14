@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public GameObject shot;
     public int maxBullets = 5;
     public List<GameObject> bulletsOnScreen;
+    public int enemyHits;
+    public int killStreak;
     public Bullet bullet;
     public bool manyShots = false;
 

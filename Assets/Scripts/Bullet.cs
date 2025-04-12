@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    //the speed of the bullet
+    //the speed of the bullet and the amount of time the bullet can fly through
     public float bulletSpeed = 3;
     public float airTime;
     public float maxAirTime = 8;
     public Player player;
+    public Enemy enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -33,5 +34,11 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    public void HitAnEnemy()
+    {
+        player.BulletDissapear(gameObject);
+        Destroy(gameObject);
     }
 }
