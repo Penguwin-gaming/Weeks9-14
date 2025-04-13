@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     public float timeAlive;
     public float maxTimeAlive;
     public SpriteRenderer sr;
+    public Player player;
+    public ParticleSystem hit;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,9 @@ public class Enemy : MonoBehaviour
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (sr.bounds.Contains(mousePos))
             {
+                player.enemyHits += 1;
+                player.enemyStreak += 1;
+                hit.Play();
                 Destroy(gameObject, 0.5f);
             }
 

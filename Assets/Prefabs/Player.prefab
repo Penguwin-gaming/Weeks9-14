@@ -99,4 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: 0
   positionY: 0
+  positionX: 0
   enemyHits: 0
+  isDead: 0
+  enemyStreak: 0
+  streakReward: {fileID: 0}

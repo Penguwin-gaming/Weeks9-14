@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
         pos.x -= bulletSpeed * Time.deltaTime;
         transform.position = pos;
 
-        if (pos.x >= -10.25 && pos.x <= -9.75 &&  pos.y == player.positionY)
+        if (pos.x <= player.positionX + 0.25 && pos.x >= player.positionX - 0.25 && pos.y >= player.positionY - 0.25 && pos.y <= player.positionY)
         {
             player.isDead = true;
         }

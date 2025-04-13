@@ -101,3 +101,5 @@ MonoBehaviour:
   timeAlive: 0
   maxTimeAlive: 0
   sr: {fileID: 1106157341469540468}
+  player: {fileID: 1363898385450268478, guid: c760ef1a3c5b9c44fbd2e7a61b770e1c, type: 3}
+  hit: {fileID: 8617483441842807841, guid: 3b7c59f5f3d7bed4f85ef67aee6617fb, type: 3}

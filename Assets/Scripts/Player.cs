@@ -2,16 +2,20 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     //declaring the variables that the player makes use of
     public int movement;
-    public int positionY;
+    public float positionY;
+    public float positionX;
 
     //variables that relate to other important features
     public int enemyHits;
     public bool isDead;
+    public int enemyStreak;
+    public Image streakReward;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +23,7 @@ public class Player : MonoBehaviour
         isDead = false;
         movement = 3;
         positionY = 0;
+        positionX = - 10;
     }
 
     // Update is called once per frame
@@ -27,6 +32,7 @@ public class Player : MonoBehaviour
         //updates the players location
         Vector2 pos = transform.position;
         pos.y = positionY;
+        pos.x = - 10;
         transform.position = pos;
         // checks player input and moves the player a set amount (3 in this case) 
         // checks if the player is at the higest posible position or the lowest and does not read the input if the player tries to move lower or higher
@@ -38,6 +44,12 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S) && positionY > -2)
         {
             positionY = positionY - movement;
+        }
+
+        if (enemyStreak == 15)
+        {
+            streakReward.gameObject.SetActive(true);
+            enemyStreak = 0; 
         }
 
         if (isDead == true)
