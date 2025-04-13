@@ -25,12 +25,13 @@ public class Bullet : MonoBehaviour
         pos.x -= bulletSpeed * Time.deltaTime;
         transform.position = pos;
 
+        //hit detection to see if the player is touching the bullet and sets a bool in player script to destroy the player
         if (pos.x <= player.positionX + 0.25 && pos.x >= player.positionX - 0.25 && pos.y >= player.positionY - 0.25 && pos.y <= player.positionY)
         {
             player.isDead = true;
         }
 
-        //checks how long the bullet has been flying through the air and if it flies too long(off the screen) will despawn
+        //checks how long the bullet has been flying through the air and despawns it after a set time
         airTime += Time.deltaTime;
 
         if (airTime > maxAirTime)

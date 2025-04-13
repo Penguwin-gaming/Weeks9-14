@@ -45,13 +45,13 @@ public class Player : MonoBehaviour
         {
             positionY = positionY - movement;
         }
-
+        // activates the streak reward for the player when 15 kills in a streak is made
         if (enemyStreak == 15)
         {
             streakReward.gameObject.SetActive(true);
             enemyStreak = 0; 
         }
-
+        // destroys the player when hit by a bullet
         if (isDead == true)
         {
             Destroy (gameObject);

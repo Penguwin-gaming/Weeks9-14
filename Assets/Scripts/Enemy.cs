@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //the speed of the enemies they spawn in with
+    //the speed of the enemies they spawn in with. alongside its hit detection and particle effect when hit
     public float enemySpeed = 2;
     public float timeAlive;
     public float maxTimeAlive;
@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //the time the enemy stays alive
         maxTimeAlive = 9;
     }
 
@@ -26,8 +27,11 @@ public class Enemy : MonoBehaviour
         pos.x -= enemySpeed * Time.deltaTime;
         transform.position = pos;
 
+        // the timer to destroy the enemy after a set time
         timeAlive += Time.deltaTime;
 
+        // code taken from week 6 target practice to check if the player has hit the enemy with the mouse and plays a particle system
+        // also destroys the enemy and increments the players score and kill streak
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -41,6 +45,7 @@ public class Enemy : MonoBehaviour
 
         }
 
+        // enemy will destroy itself after travelling too long off screen to prevent an overflow of objects in game
         if (timeAlive > maxTimeAlive)
         {
             Destroy(gameObject);
